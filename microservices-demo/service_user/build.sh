@@ -1,0 +1,1 @@
+pyinstaller --onefile --paths=../ -n app app.py

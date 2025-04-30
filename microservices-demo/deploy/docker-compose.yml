@@ -1,0 +1,185 @@
+version: "3.9"
+services:
+  mall-traefik:
+    image: traefik:v2.10
+    container_name: mall-traefik
+    command:
+      - "--api.insecure=true"  # 启用仪表盘，注意：生产环境应关闭
+      - "--providers.docker=true"  # 启用 Docker 服务发现
+      - "--log.level=DEBUG"    # 开启 DEBUG 日志
+      - "--accesslog=true"     # 开启访问日志
+      - "--accesslog.filepath=/logs/access.log" # 保存访问日志到文件
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--api.dashboard=true"
+      - "--entrypoints.traefik.address=:8080" # Dashboard 默认端口
+      - "--certificatesResolvers.http.acme.email=tencoco3@gmail.com"  # Let's Encrypt 邮箱
+      - "--certificatesResolvers.http.acme.storage=acme.json"  # Let's Encrypt 存储路径
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # Dashboard 端口
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./gateway/:/etc/traefik/"
+      - "./logs/:/logs/" # 挂载日志目录
+    networks:
+      - common
+
+  mall-redis:
+    image: redis
+    container_name: mall-redis
+    ports:
+      - "${REDIS_PORT}:6379"
+    command: redis-server --requirepass ${REDIS_PASSWD}
+    networks:
+      - common
+
+  mall-rabbitmq:
+    image: rabbitmq:3-management
+    container_name: mall-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_USER}
+    ports:
+      - "15672:15672" # RabbitMQ 管理界面
+    networks:
+      - common
+
+  mall-mysql:
+    image: mysql:8.0
+    container_name: mall-mysql
+    environment:
+      TZ: ${TZ}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_SQL_MODE: "NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES"
+    command: --sql-mode="NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES" # 禁用 ONLY_FULL_GROUP_BY
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
+    networks:
+      - common
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  mall-nacos:
+    image: nacos/nacos-server:latest
+    platform: linux/arm64
+    container_name: mall-nacos
+    environment:
+      - TZ=${TZ}
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=mall-mysql
+      - MYSQL_SERVICE_DB_NAME=nacos_devtest
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - NACOS_AUTH_IDENTITY_KEY=2222
+      - NACOS_AUTH_IDENTITY_VALUE=2xxx
+      - NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
+      - NACOS_AUTH_ENABLE=true
+    ports:
+      - "8848:8848"
+    networks:
+      - common
+    volumes:
+      - ./nacos:/home/init
+    entrypoint: [ "sh", "-c", "NACOS_USERNAME=${NACOS_USERNAME} NACOS_PASSWORD=${NACOS_PASSWORD} NACOS_NAMESPACE=${NACOS_NAMESPACE} sh /home/init/entrypoint.sh" ]
+    healthcheck:
+      test: [ "CMD-SHELL", "NACOS_USERNAME=${NACOS_USERNAME} NACOS_PASSWORD=${NACOS_PASSWORD} sh /home/init/healthcheck.sh" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  service-core:
+    image: docker.live168.xyz/mall_python/service_core:v1.0.7
+    container_name: service-core
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.core-router.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/core`)"
+      - "traefik.http.routers.core-router.entrypoints=web"
+      - "traefik.http.routers.core-router.tls=true"  # 启用 TLS
+      - "traefik.http.routers.core-router.tls.certresolver=http"  # 使用 Let's Encrypt 证书解析器
+      - "traefik.http.services.core-service.loadbalancer.server.port=8000"
+    networks:
+      - common
+    depends_on:
+      mall-nacos:
+        condition: service_healthy
+
+  service-user:
+    image: docker.live168.xyz/mall_python/service_user:v1.0.7
+    container_name: service-user
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.user-router.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/user`)"
+      - "traefik.http.routers.user-router.entrypoints=web"
+      - "traefik.http.routers.core-router.tls=true"  # 启用 TLS
+      - "traefik.http.routers.core-router.tls.certresolver=http"  # 使用 Let's Encrypt 证书解析器
+      - "traefik.http.services.user-service.loadbalancer.server.port=8001"
+    networks:
+      - common
+    depends_on:
+      mall-nacos:
+        condition: service_healthy
+
+  service-order:
+    image: docker.live168.xyz/mall_python/service_order:v1.0.7
+    container_name: service-order
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.order-router.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/order`)"
+      - "traefik.http.routers.order-router.entrypoints=web"
+      - "traefik.http.routers.core-router.tls=true"  # 启用 TLS
+      - "traefik.http.routers.core-router.tls.certresolver=http"  # 使用 Let's Encrypt 证书解析器
+      - "traefik.http.services.order-service.loadbalancer.server.port=8002"
+    networks:
+      - common
+    depends_on:
+      mall-nacos:
+        condition: service_healthy
+
+  service-product:
+    image: docker.live168.xyz/mall_python/service_product:v1.0.7
+    container_name: service-product
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.product-router.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/product`)"
+      - "traefik.http.routers.product-router.entrypoints=web"
+      - "traefik.http.routers.core-router.tls=true"  # 启用 TLS
+      - "traefik.http.routers.core-router.tls.certresolver=http"  # 使用 Let's Encrypt 证书解析器
+      - "traefik.http.services.product-service.loadbalancer.server.port=8003"
+    networks:
+      - common
+    depends_on:
+      mall-nacos:
+        condition: service_healthy
+
+  service-wallet:
+    image: docker.live168.xyz/mall_python/service_wallet:v1.0.7
+    container_name: service-wallet
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wallet-router.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/wallet`)"
+      - "traefik.http.routers.wallet-router.entrypoints=web"
+      - "traefik.http.routers.core-router.tls=true"  # 启用 TLS
+      - "traefik.http.routers.core-router.tls.certresolver=http"  # 使用 Let's Encrypt 证书解析器
+      - "traefik.http.services.wallet-service.loadbalancer.server.port=8004"
+    networks:
+      - common
+    depends_on:
+      mall-nacos:
+        condition: service_healthy
+
+networks:
+  common:
+    external: true
+
