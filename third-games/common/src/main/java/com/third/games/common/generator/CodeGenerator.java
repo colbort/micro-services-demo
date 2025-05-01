@@ -22,7 +22,7 @@ public class CodeGenerator {
      **/
     public void fastAutoGenerator(String... tables) {
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.10.138:3306/stock?serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://192.168.10.138:3306/third_games?serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -59,6 +59,7 @@ public class CodeGenerator {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityTableFieldAnnotationEnable(true);
         strategy.setEntityLombokModel(true);
+        strategy.setTablePrefix("t_"); // 去除表名前缀 t_
         mpg.setStrategy(strategy);
 
         // 自定义输出配置
@@ -107,6 +108,6 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         CodeGenerator daoCodeAutoGenerator = new CodeGenerator();
-        daoCodeAutoGenerator.fastAutoGenerator("user_follow_order");
+        daoCodeAutoGenerator.fastAutoGenerator("t_user");
     }
 }

@@ -12,3 +12,4 @@ spring:
     active: dev
   application:
     name: product-service
+
