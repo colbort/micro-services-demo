@@ -1,0 +1,14 @@
+logging:
+  level:
+    root: WARN
+    org.springframework: ERROR
+    com.baomidou.mybatisplus: DEBUG
+
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: product-service
