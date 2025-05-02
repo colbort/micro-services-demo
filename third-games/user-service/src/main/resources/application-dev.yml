@@ -2,15 +2,10 @@ spring:
   cloud:
     nacos:
       username: nacos      # 默认用户名
-      password: 123456      # 默认密码
-      config:
-        server-addr: 192.168.10.138:8848  # Nacos server address
-        file-extension: yml          # File type (json, yaml, etc.)
-        name: test       # Config file name in Nacos
-        namespace: public
+      password: 123456     # 默认密码
       discovery:
         server-addr: 192.168.10.138:8848  # Nacos server address
-        service: "${spring.application.name}"  # Service name
-        group: DEFAULT_GROUP         # Group for service discovery
-        cluster-name: default        # Cluster name for service discovery
-        namespace: public
+        service: ${spring.application.name}  # 服务名
+        group: DEFAULT_GROUP         # 服务组
+        cluster-name: default        # 集群名
+        namespace: public           # Nacos命名空间

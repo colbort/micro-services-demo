@@ -1,9 +1,9 @@
 package com.third.games.users.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.third.games.common.entity.UserAddress;
 import com.third.games.common.mapper.UserAddressMapper;
 import com.third.games.users.service.IUserAddressService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

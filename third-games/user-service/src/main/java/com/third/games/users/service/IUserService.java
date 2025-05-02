@@ -1,7 +1,12 @@
 package com.third.games.users.service;
 
-import com.third.games.common.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.third.games.common.bo.UserBO;
+import com.third.games.common.entity.User;
+import com.third.games.common.exception.BizException;
+import com.third.games.common.result.Result;
+import com.third.games.common.security.LoginUser;
+import com.third.games.common.vo.UserVO;
 
 /**
  * <p>
@@ -12,5 +17,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2025-05-01
  */
 public interface IUserService extends IService<User> {
+    Result<UserVO> register(UserBO request) throws BizException;
 
+    Result<UserVO> login(UserBO request) throws BizException;
+
+    Result<Boolean> logout(LoginUser user) throws BizException;
 }

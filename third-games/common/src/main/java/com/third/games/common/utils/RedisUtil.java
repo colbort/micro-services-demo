@@ -1,19 +1,21 @@
 package com.third.games.common.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class RedisUtils {
+public class RedisUtil {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    public RedisUtils(RedisTemplate<String, Object> redisTemplate) {
+    public RedisUtil(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
@@ -43,13 +45,17 @@ public class RedisUtils {
         return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }
 
-    /** 自增 */
-    public long incr(String key, long delta) {
+    /**
+     * 自增
+     */
+    public long increment(String key, long delta) {
         return redisTemplate.opsForValue().increment(key, delta);
     }
 
-    /** 自减 */
-    public long decr(String key, long delta) {
+    /**
+     * 自减
+     */
+    public long decrement(String key, long delta) {
         return redisTemplate.opsForValue().increment(key, -delta);
     }
 
@@ -109,6 +115,10 @@ public class RedisUtils {
             return redisTemplate.delete(key);
         }
         return false;
+    }
+
+    public Boolean expire(String key, Duration duration) {
+        return redisTemplate.expire(key, duration);
     }
 }
 

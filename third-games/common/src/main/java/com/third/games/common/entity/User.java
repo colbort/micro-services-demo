@@ -1,16 +1,15 @@
 package com.third.games.common.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
 import com.third.games.common.enums.DeviceTypeEnum;
 import com.third.games.common.enums.GenderEnum;
 import com.third.games.common.enums.UserStatusEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.ibatis.type.EnumTypeHandler;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>

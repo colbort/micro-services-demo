@@ -108,6 +108,6 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         CodeGenerator daoCodeAutoGenerator = new CodeGenerator();
-        daoCodeAutoGenerator.fastAutoGenerator("t_user");
+        daoCodeAutoGenerator.fastAutoGenerator("t_verify_code_log");
     }
 }

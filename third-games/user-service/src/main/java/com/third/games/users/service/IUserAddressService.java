@@ -1,7 +1,7 @@
 package com.third.games.users.service;
 
-import com.third.games.common.entity.UserAddress;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.third.games.common.entity.UserAddress;
 
 /**
  * <p>

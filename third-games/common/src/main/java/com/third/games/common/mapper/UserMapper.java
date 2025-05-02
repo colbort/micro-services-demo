@@ -1,7 +1,7 @@
 package com.third.games.common.mapper;
 
-import com.third.games.common.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.third.games.common.entity.User;
 
 /**
  * <p>

@@ -2,8 +2,6 @@ package com.third.games.common.bo;
 
 
 import lombok.Data;
-import java.lang.Integer;
-import java.lang.String;
 
 @Data
 public class UserAddressBO {

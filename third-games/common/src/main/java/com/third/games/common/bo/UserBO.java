@@ -2,9 +2,6 @@ package com.third.games.common.bo;
 
 
 import lombok.Data;
-import java.lang.Integer;
-import java.lang.Long;
-import java.lang.String;
 
 @Data
 public class UserBO {
@@ -20,4 +17,7 @@ public class UserBO {
     private String deviceType; // 注册设备类型：ios、android、pc等
     private String deviceId; // 设备唯一标识
     private Long parentId; // 上级用户ID（推荐人）
+    private Boolean codeLogin; // 是否验证码注册/登录
+    private String verifyCode; // 验证码内容
+    private String verifyId; // 验证码对应的ID
 }

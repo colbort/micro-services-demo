@@ -2,11 +2,6 @@ package com.third.games.common.bo;
 
 
 import lombok.Data;
-import java.time.LocalDateTime;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import java.lang.Integer;
-import java.lang.Long;
-import java.lang.String;
 
 @Data
 public class UserPrivateBO {
