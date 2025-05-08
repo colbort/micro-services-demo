@@ -1,0 +1,17 @@
+package com.third.games.common.mapper;
+
+import com.third.games.common.entity.VerifyCodeLog;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ * 验证码发送记录表 Mapper 接口
+ * </p>
+ *
+ * @author baomidou
+ * @since 2025-05-07
+ */
+public interface VerifyCodeLogMapper extends BaseMapper<VerifyCodeLog> {
+
+}
