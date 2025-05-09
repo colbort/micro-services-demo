@@ -32,8 +32,8 @@ public class UserController {
         return userService.register(request);
     }
 
-    @PostMapping("/login")
     @NoAuth
+    @PostMapping("/login")
     public Result<UserVO> login(@RequestBody UserBO request) {
         return userService.login(request);
     }

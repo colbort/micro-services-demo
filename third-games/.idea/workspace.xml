@@ -5,74 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/IpUtil/IpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/config/EmailProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/config/SmsProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/config/WebFilterConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/events/EmailSendEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/events/SmsSendEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/IpFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/listener/EmailSendListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/listener/SmsSendListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/IVerifyCodeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/annotation/NoAuth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/enums/DeviceTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/enums/GenderEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/enums/IdCardTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/enums/UserStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/enums/VerifyCodeTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/exception/BizException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/result/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/result/ResultCodeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/security/LoginUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/utils/AESUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/utils/RSAUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/utils/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/utils/UserContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/JwtProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/IpFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/TokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/JwtTokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/utils/IpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/utils/PasswordUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/bo/VerifyCodeBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/feign/VerifyServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/CaptchaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/CaptchaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/controller/VerifyCodeLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/controller/VerifyCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/IVerifyCodeLogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeLogServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/controller/VerifyCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/controller/VerifyCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/IpFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/IVerifyCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/IVerifyCodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/bo/VerifyCodeLogBO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/dto/VerifyCodeLogDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/dto/VerifyCodeLogDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/VerifyCodeLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/VerifyCodeLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/generator/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/generator/CodeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/mapper/VerifyCodeLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/mapper/VerifyCodeLogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/vo/VerifyCodeLogVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/bo/VerifyCodeLogBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/bo/VerifyCodeLogBO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/dto/VerifyCodeLogDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/dto/VerifyCodeLogDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/entity/VerifyCodeLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/entity/VerifyCodeLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/CodeGenerator$TimerVelocityTemplateEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/CodeGenerator$TimerVelocityTemplateEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/CodeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/CodeGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/VelocityDebugExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/generator/VelocityDebugExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/mapper/VerifyCodeLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/mapper/VerifyCodeLogMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/vo/VerifyCodeLogVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/vo/VerifyCodeLogVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/result/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/result/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/bo/VerifyCodeLogBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/DeviceTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/DeviceTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/GenderEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/GenderEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/IdCardTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/IdCardTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/UserStatusEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/enums/UserStatusEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/common-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/common-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/test/java/com/third/games/user/UserServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/com/third/games/user/UserServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserPrivateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserPrivateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/IUserPrivateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/IUserPrivateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserPrivateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserPrivateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +176,7 @@
       <workItem from="1746670839176" duration="248000" />
       <workItem from="1746671165384" duration="576000" />
       <workItem from="1746710239025" duration="1806000" />
-      <workItem from="1746756019771" duration="12998000" />
+      <workItem from="1746756019771" duration="19258000" />
     </task>
     <servers />
   </component>
@@ -228,24 +187,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

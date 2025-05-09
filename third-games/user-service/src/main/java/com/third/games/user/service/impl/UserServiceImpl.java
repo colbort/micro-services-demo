@@ -3,7 +3,9 @@ package com.third.games.user.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.third.games.common.bo.UserBO;
+import com.third.games.common.bo.VerifyCodeBO;
 import com.third.games.common.entity.User;
+import com.third.games.common.enums.UserStatusEnum;
 import com.third.games.common.exception.BizException;
 import com.third.games.common.mapper.UserMapper;
 import com.third.games.common.result.Result;
@@ -11,6 +13,7 @@ import com.third.games.common.result.ResultCodeEnum;
 import com.third.games.common.security.LoginUser;
 import com.third.games.common.utils.RedisUtil;
 import com.third.games.common.vo.UserVO;
+import com.third.games.user.feign.VerifyServiceClient;
 import com.third.games.user.service.IUserService;
 import com.third.games.user.utils.PasswordUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +35,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private UserMapper userMapper;
     @Autowired
     private RedisUtil redisUtils;
+    @Autowired
+    private VerifyServiceClient verifyServiceClient;
 
     @Override
     public Result<UserVO> register(UserBO request) throws BizException {
@@ -51,12 +56,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (user == null) {
             throw new BizException(ResultCodeEnum.USER_NOT_FOUND);
         }
+        if (user.getStatus() != UserStatusEnum.ENABLED || user.getIsDeleted()){
+            throw new BizException(ResultCodeEnum.USER_INVALID);
+        }
         if (StringUtils.isNotBlank(request.getVerifyCode())) {
-            String temp = (String) redisUtils.get(verifyCodeKey(request.getVerifyCode()));
-            if (StringUtils.isBlank(request.getVerifyId()) || !request.getVerifyId().equals(temp)) {
-                throw new BizException(0, "验证码错误");
+            Result<Boolean> result = verifyServiceClient.verify(new VerifyCodeBO(request.getVerifyCode(), request.getVerifyId()));
+            if (result.getCode() != ResultCodeEnum.SUCCESS.getCode()) {
+                throw new BizException(result.getCode(), result.getMessage());
             }
-            redisUtils.del(verifyCodeKey(request.getVerifyCode()));
         } else {
             if (!PasswordUtil.matches(request.getPassword(), user.getPassword())) {
                 throw new BizException(ResultCodeEnum.PASSWORD_ERROR);
@@ -79,9 +86,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     private String userCacheKey(Long userId) {
         return String.format("login_user:%d", userId);
-    }
-
-    private String verifyCodeKey(String code) {
-        return String.format("verify_code:%s", code);
     }
 }

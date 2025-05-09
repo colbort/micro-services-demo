@@ -18,8 +18,9 @@ public enum ResultCodeEnum {
     // 用户模块
     USER_NOT_FOUND(1001, "用户不存在"),
     USER_EXISTS(1002, "用户已存在"),
-    INVALID_PHONE(1003, "手机号不合法"),
-    PASSWORD_ERROR(1004, "密码错误"),
+    USER_INVALID(1003, "用户不合法"),
+    INVALID_PHONE(1010, "手机号不合法"),
+    PASSWORD_ERROR(1020, "密码错误"),
 
     DELETE_ERROR(2001, "销毁数据失败");
 

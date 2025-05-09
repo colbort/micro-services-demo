@@ -6,6 +6,7 @@ import com.third.games.captcha.config.SmsProperties;
 import com.third.games.captcha.events.EmailSendEvent;
 import com.third.games.captcha.events.SmsSendEvent;
 import com.third.games.captcha.service.IVerifyCodeService;
+import com.third.games.common.bo.VerifyCodeBO;
 import com.third.games.common.entity.VerifyCodeLog;
 import com.third.games.common.enums.VerifyCodeTypeEnum;
 import com.third.games.common.exception.BizException;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.Duration;
+import java.util.Objects;
 
 /**
  * <p>
@@ -60,7 +62,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             String redisKey = getSmsRedisKey(phone);
             // 检查每天发送次数是否超限
             Object count = redisUtils.get(redisKey + ":dailyCount");
-            Integer dailyCount = 0;
+            int dailyCount = 0;
             if (count != null) {
                 dailyCount = Integer.parseInt(String.valueOf(count));
             }
@@ -103,7 +105,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             String redisKey = getEmailRedisKey(email);
 
             // 检查每天发送次数是否超限
-            Integer dailyCount = Integer.parseInt(redisUtils.get(redisKey + ":dailyCount").toString());
+            int dailyCount = Integer.parseInt(redisUtils.get(redisKey + ":dailyCount").toString());
             if (dailyCount >= emailProperties.getLimit().getMaxPerDay()) {
                 throw new BizException(0, "每日发送次数已达上限，请明天再试");
             }
@@ -152,5 +154,21 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
     // 获取 Redis 键值（邮件）
     private String getEmailRedisKey(String email) {
         return "verify:email:count:" + email;
+    }
+
+    @Override
+    public Result<Boolean> verify(VerifyCodeBO request) throws BizException {
+        if (request == null || request.getVerifyCode() == null || request.getVerifyCode().isEmpty()) {
+            throw new BizException(0, "参数错误");
+        }
+        Object value = redisUtils.get(verifyCodeKey(request.getVerifyCode()));
+        if (value == null) {
+            throw new BizException(0, "验证码过期");
+        }
+        if (!Objects.equals(String.valueOf(value), request.getVerifyId())) {
+            throw new BizException(0, "验证码无效");
+        }
+        redisUtils.del(verifyCodeKey(request.getVerifyCode()));
+        return Result.success(true);
     }
 }

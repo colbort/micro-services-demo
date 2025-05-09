@@ -6,7 +6,6 @@ com/third/games/common/bo/UserBO.class
 com/third/games/common/annotation/NoAuth.class
 com/third/games/common/vo/UserAddressVO.class
 com/third/games/common/mapper/UserMapper.class
-com/third/games/common/bo/VerifyCodeLogBO.class
 com/third/games/common/dto/VerifyCodeLogDTO.class
 com/third/games/common/bo/UserPrivateBO.class
 com/third/games/common/dto/UserPrivateDTO.class
@@ -16,6 +15,7 @@ com/third/games/common/utils/AESUtil.class
 com/third/games/common/mapper/UserAddressMapper.class
 com/third/games/common/result/ResultCodeEnum.class
 com/third/games/common/enums/GenderEnum.class
+com/third/games/common/bo/VerifyCodeBO.class
 com/third/games/common/config/RedisConfig.class
 com/third/games/common/entity/UserPrivate.class
 com/third/games/common/generator/CodeGenerator$TimerVelocityTemplateEngine.class
