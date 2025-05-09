@@ -15,9 +15,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="captcha-service" options="-parameters" />
-      <module name="common-service" options="-parameters" />
-      <module name="user-service" options="-parameters" />
+      <module name="captcha-service" options="" />
+      <module name="common-service" options="" />
+      <module name="user-service" options="" />
     </option>
   </component>
 </project>

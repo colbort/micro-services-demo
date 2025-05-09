@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import com.third.games.common.enums.VerifyCodeTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -52,7 +54,7 @@ public class VerifyCodeLog implements Serializable {
      * 发送类型：0-未知，1-短信，2-邮件
      */
     @TableField("send_type")
-    private Byte sendType;
+    private VerifyCodeTypeEnum sendType;
 
     /**
      * 发送请求来源 IP
@@ -64,7 +66,7 @@ public class VerifyCodeLog implements Serializable {
      * 发送状态：1-成功，0-失败
      */
     @TableField("status")
-    private Byte status;
+    private Boolean status;
 
     /**
      * 创建时间

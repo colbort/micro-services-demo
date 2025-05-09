@@ -1,8 +1,7 @@
 package com.third.games.common.mapper;
 
-import com.third.games.common.entity.VerifyCodeLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+import com.third.games.common.entity.VerifyCodeLog;
 
 /**
  * <p>

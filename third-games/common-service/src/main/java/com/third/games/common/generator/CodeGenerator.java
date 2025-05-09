@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +25,7 @@ public class CodeGenerator {
         private VelocityEngine velocityEngine;
 
         @Override
-        public @NotNull TimerVelocityTemplateEngine init(@NotNull ConfigBuilder configBuilder) {
+        public TimerVelocityTemplateEngine init(ConfigBuilder configBuilder) {
             if (null == this.velocityEngine) {
                 Properties p = new Properties();
                 p.setProperty("resource.loader.file.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
@@ -42,7 +41,7 @@ public class CodeGenerator {
 
 
         @Override
-        public void writer(@NotNull Map<String, Object> objectMap, @NotNull String templatePath, @NotNull File outputFile) throws Exception {
+        public void writer(Map<String, Object> objectMap, String templatePath, File outputFile) throws Exception {
             Template template = velocityEngine.getTemplate(templatePath, ConstVal.UTF8);
             String entity = objectMap.get("entity").toString();
             String fileName = outputFile.getName();
@@ -70,7 +69,7 @@ public class CodeGenerator {
 
 
         @Override
-        public @NotNull String templateFilePath(@NotNull String filePath) {
+        public String templateFilePath(String filePath) {
             final String dotVm = ".vm";
             return filePath.endsWith(dotVm) ? filePath : filePath + dotVm;
         }
@@ -132,6 +131,6 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         CodeGenerator daoCodeAutoGenerator = new CodeGenerator();
-        daoCodeAutoGenerator.fastAutoGenerator("t_verify_code_log");
+        daoCodeAutoGenerator.fastAutoGenerator("t_user", "t_user_private", "t_user_address");
     }
 }
