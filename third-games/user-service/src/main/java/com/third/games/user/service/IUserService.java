@@ -22,4 +22,6 @@ public interface IUserService extends IService<User> {
     Result<UserVO> login(UserBO request) throws BizException;
 
     Result<Boolean> logout(LoginUser user) throws BizException;
+
+    Result<UserVO> updateUserInfo(UserBO request, Long userId) throws BizException;
 }

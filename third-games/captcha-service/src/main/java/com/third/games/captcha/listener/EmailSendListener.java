@@ -23,7 +23,7 @@ import java.util.Properties;
 @Slf4j
 @Component
 public class EmailSendListener {
-//    @Autowired
+    //    @Autowired
 //    private JavaMailSender sender;
     @Autowired
     private VerifyCodeLogMapper codeLogMapper;
