@@ -3,10 +3,10 @@ com/third/games/common/generator/CodeGenerator.class
 com/third/games/common/mapper/VerifyCodeLogMapper.class
 com/third/games/common/vo/UserPrivateVO.class
 com/third/games/common/bo/UserBO.class
+com/third/games/common/vo/UserVO$User.class
 com/third/games/common/annotation/NoAuth.class
 com/third/games/common/vo/UserAddressVO.class
 com/third/games/common/mapper/UserMapper.class
-com/third/games/common/dto/VerifyCodeLogDTO.class
 com/third/games/common/bo/UserPrivateBO.class
 com/third/games/common/dto/UserPrivateDTO.class
 com/third/games/common/dto/UserDTO.class
@@ -14,6 +14,7 @@ com/third/games/common/utils/RSAUtil.class
 com/third/games/common/utils/AESUtil.class
 com/third/games/common/mapper/UserAddressMapper.class
 com/third/games/common/result/ResultCodeEnum.class
+com/third/games/common/dto/VerifyCodeDTO.class
 com/third/games/common/enums/GenderEnum.class
 com/third/games/common/bo/VerifyCodeBO.class
 com/third/games/common/config/RedisConfig.class

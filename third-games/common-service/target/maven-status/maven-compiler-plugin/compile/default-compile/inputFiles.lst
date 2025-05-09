@@ -7,7 +7,7 @@
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/UserAddressDTO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/UserDTO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/UserPrivateDTO.java
-/home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/VerifyCodeLogDTO.java
+/home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/VerifyCodeDTO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/entity/User.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/entity/UserAddress.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/entity/UserPrivate.java

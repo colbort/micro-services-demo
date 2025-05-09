@@ -12,6 +12,7 @@
 
     <modules>
         <module>common-service</module>
+        <module>gateway-service</module>
         <module>captcha-service</module>
         <module>user-service</module>
     </modules>
