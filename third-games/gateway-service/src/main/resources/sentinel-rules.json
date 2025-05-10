@@ -1,0 +1,31 @@
+{
+  "flowRules": [
+    {
+      "resource": "/api/v1/verify/*",  // 资源路径，可以是请求的 URI
+      "count": 1,                      // 每秒允许的最大请求数
+      "grade": 1,                       // 限流的方式，1: QPS（每秒请求数）
+      "limitApp": "default",            // 限流的应用标识，默认为 default
+      "strategy": 0,                    // 规则的类型，0：直接限流，1：排队等候
+      "controlBehavior": 0              // 控制行为，0：直接限流，1：排队等候，2：排队等候，等待时间过长会被拒绝
+    }
+  ],
+  "degradeRules": [
+    {
+      "resource": "/api/v1/user/**",    // 资源路径
+      "count": 5,                       // 最大熔断次数
+      "grade": 0,                       // 熔断的方式，0：失败比例
+      "timeWindow": 60,                 // 滑动窗口的大小，单位为秒
+      "statIntervalMs": 1000,           // 每 1 秒进行一次状态监控
+      "slowRatioThreshold": 0.2,        // 请求慢响应的阈值比例（例如：0.2 表示 20% 请求响应慢）
+      "minRequestAmount": 10            // 最少请求数，低于该值不执行熔断
+    }
+  ],
+  "systemRules": [
+    {
+      "resource": "system",             // 资源名
+      "count": 1,                     // QPS 限制
+      "grade": 1,                       // 限制级别：QPS（1）
+      "limitApp": "default"             // 限制应用标识
+    }
+  ]
+}

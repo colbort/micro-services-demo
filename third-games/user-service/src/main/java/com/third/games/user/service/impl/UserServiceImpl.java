@@ -12,11 +12,11 @@ import com.third.games.common.mapper.UserMapper;
 import com.third.games.common.result.Result;
 import com.third.games.common.result.ResultCodeEnum;
 import com.third.games.common.security.LoginUser;
+import com.third.games.common.utils.JwtTokenUtil;
 import com.third.games.common.utils.RedisUtil;
 import com.third.games.common.vo.UserVO;
 import com.third.games.user.feign.VerifyServiceClient;
 import com.third.games.user.service.IUserService;
-import com.third.games.user.service.TokenService;
 import com.third.games.user.utils.PasswordUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -40,7 +40,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     private VerifyServiceClient verifyServiceClient;
     @Autowired
-    private TokenService tokenService;
+    private JwtTokenUtil tokenUtil;
 
     @Override
     public Result<UserVO> register(UserBO request) throws BizException {
@@ -93,7 +93,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         userMapper.insert(user);
         redisUtils.set(userCacheKey(user.getId()), user, -1);
-        String token = tokenService.createToken(new LoginUser(user.getId(), user.getUsername()), user.getDeviceType().getCode());
+        String token = tokenUtil.createToken(new LoginUser(user.getId(), user.getUsername()), user.getDeviceType().getCode());
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO.getUser());
         userVO.setToken(token);
@@ -134,7 +134,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         redisUtils.set(userCacheKey(user.getId()), user, -1);
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO.getUser());
-        String token = tokenService.createToken(new LoginUser(user.getId(), user.getUsername()), user.getDeviceType().getCode());
+        String token = tokenUtil.createToken(new LoginUser(user.getId(), user.getUsername()), user.getDeviceType().getCode());
         userVO.setToken(token);
         redisUtils.set(tokenCacheKey(user.getId()), token, -1);
         return Result.success(userVO);

@@ -26,6 +26,7 @@
         <mysql.version>8.0.33</mysql.version>
         <lombok.version>1.18.30</lombok.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
+        <sa-token-jwt.version>1.34.0</sa-token-jwt.version>
     </properties>
 
     <dependencyManagement>

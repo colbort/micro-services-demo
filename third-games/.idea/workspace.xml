@@ -5,22 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/TokenInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/utils/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/sentinel-rules.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/CaptchaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/CaptchaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/dto/VerifyCodeLogDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/vo/UserVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/classes/com/third/games/common/vo/UserVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common-service/target/common-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/common-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/third/games/gateway/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/third/games/gateway/GatewayServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/config/JwtProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/TokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/JwtTokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,55 +53,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CodeGenerator.executor": "Run",
-    "Maven.captcha-service [clean].executor": "Run",
-    "Maven.captcha-service [package].executor": "Run",
-    "Maven.common-service [clean].executor": "Run",
-    "Maven.common-service [package].executor": "Run",
-    "Maven.third-games [clean].executor": "Run",
-    "Maven.third-games [install].executor": "Run",
-    "Maven.third-games [package].executor": "Run",
-    "Maven.user-service [clean].executor": "Run",
-    "Maven.user-service [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.CaptchaServiceApplication.executor": "Debug",
-    "Spring Boot.GatewayServiceApplication.executor": "Debug",
-    "Spring Boot.UserServiceApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/momo/local/java/micro-services-demo/third-games/gateway-service/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CodeGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.captcha-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.captcha-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.common-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.common-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CaptchaServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/momo/local/java/micro-services-demo/third-games/gateway-service/src/main/java/com/third/games/gateway&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gateway-service/src/main/java/com/third/games/gateway" />
       <recent name="$PROJECT_DIR$/gateway-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha" />
       <recent name="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common" />
       <recent name="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user" />
-      <recent name="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/common-service/src/main/resources/mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.third.games.common.config" />
+      <recent name="com.third.games.captcha.filter" />
       <recent name="com.third.games.captcha.IpUtil" />
       <recent name="com.third.games.captcha.config" />
     </key>
@@ -173,7 +179,8 @@
       <workItem from="1746670839176" duration="248000" />
       <workItem from="1746671165384" duration="576000" />
       <workItem from="1746710239025" duration="1806000" />
-      <workItem from="1746756019771" duration="26651000" />
+      <workItem from="1746756019771" duration="33131000" />
+      <workItem from="1746842467946" duration="12287000" />
     </task>
     <servers />
   </component>
@@ -187,6 +194,31 @@
           <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java</url>
           <line>44</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-gateway-server/4.1.5/spring-cloud-gateway-server-4.1.5.jar!/org/springframework/cloud/gateway/handler/predicate/RoutePredicateFactory.class</url>
+          <line>28</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-gateway-server/4.1.5/spring-cloud-gateway-server-4.1.5.jar!/org/springframework/cloud/gateway/handler/predicate/RoutePredicateFactory.class</url>
+          <line>21</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gateway-service/src/main/java/com/third/games/gateway/filter/AuthFilter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/TokenInterceptor.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/TokenInterceptor.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

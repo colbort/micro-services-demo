@@ -1,4 +1,4 @@
-package com.third.games.user.filter;
+package com.third.games.captcha.filter;
 
 import com.third.games.common.annotation.NoAuth;
 import com.third.games.common.security.LoginUser;

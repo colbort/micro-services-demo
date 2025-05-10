@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Objects;
 
 /**
@@ -92,7 +94,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             redisUtils.set(redisKey + ":lastSendTime", String.valueOf(System.currentTimeMillis()), -1);
 
             // 设置一天后过期，自动清除当天的计数
-            redisUtils.expire(redisKey + ":dailyCount", Duration.ofDays(1));
+            redisUtils.expire(redisKey + ":dailyCount", toadyEndDuration());
             publisher.publishEvent(new SmsSendEvent(templateId, title, content, countryCode, phone, ip));
             return Result.success(value);
         } catch (Exception e) {
@@ -126,7 +128,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             redisUtils.increment(redisKey + ":dailyCount", 1);
             redisUtils.set(redisKey + ":lastSendTime", String.valueOf(System.currentTimeMillis()), -1);
             // 设置一天后过期，自动清除当天的计数
-            redisUtils.expire(redisKey + ":dailyCount", Duration.ofDays(1));
+            redisUtils.expire(redisKey + ":dailyCount", toadyEndDuration());
             publisher.publishEvent(new EmailSendEvent(title, content, email, ip));
             return Result.success(value);
         } catch (Exception e) {
@@ -170,5 +172,11 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
         }
         redisUtils.del(verifyCodeKey(request.getVerifyCode()));
         return Result.success(true);
+    }
+
+    private Duration toadyEndDuration() {
+        LocalDateTime endOfDay = LocalDateTime.now().toLocalDate().atTime(23, 59, 59);
+        long endOfDayTime = endOfDay.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        return Duration.ofMillis(endOfDayTime - System.currentTimeMillis());
     }
 }

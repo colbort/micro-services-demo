@@ -1,4 +1,4 @@
-package com.third.games.user.config;
+package com.third.games.common.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

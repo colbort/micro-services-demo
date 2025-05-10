@@ -1,22 +1,20 @@
-package com.third.games.user.service.impl;
+package com.third.games.common.utils;
 
 import cn.dev33.satoken.jwt.SaJwtUtil;
 import cn.hutool.json.JSONObject;
+import com.third.games.common.config.JwtProperties;
 import com.third.games.common.security.LoginUser;
-import com.third.games.user.config.JwtProperties;
-import com.third.games.user.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
-public class JwtTokenService implements TokenService {
+@Component
+public class JwtTokenUtil {
     @Autowired
     private JwtProperties properties;
 
-    @Override
     public String createToken(LoginUser loginUser, String deviceType) {
         Map<String, Object> payload = new HashMap<>();
         payload.put("userId", loginUser.getUserId());
@@ -32,7 +30,6 @@ public class JwtTokenService implements TokenService {
         );
     }
 
-    @Override
     public LoginUser parseToken(String token) {
         try {
             JSONObject payload = SaJwtUtil.getPayloads(token, properties.getLoginType(), properties.getSecretKey());
@@ -48,7 +45,6 @@ public class JwtTokenService implements TokenService {
         }
     }
 
-    @Override
     public boolean validateToken(String token) {
         try {
             SaJwtUtil.parseToken(token, properties.getLoginType(), properties.getSecretKey(), true);
@@ -58,4 +54,3 @@ public class JwtTokenService implements TokenService {
         }
     }
 }
-

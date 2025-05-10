@@ -3,6 +3,7 @@
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/bo/UserBO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/bo/UserPrivateBO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/bo/VerifyCodeBO.java
+/home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/config/JwtProperties.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/config/RedisConfig.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/UserAddressDTO.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/dto/UserDTO.java
@@ -28,6 +29,7 @@
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/result/ResultCodeEnum.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/security/LoginUser.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/utils/AESUtil.java
+/home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/utils/JwtTokenUtil.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/utils/RSAUtil.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/utils/RedisUtil.java
 /home/momo/local/java/micro-services-demo/third-games/common-service/src/main/java/com/third/games/common/utils/UserContext.java
