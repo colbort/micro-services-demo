@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="" />
+    <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/generator/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/generator/CodeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,50 +42,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CodeGenerator.executor": "Run",
-    "Maven.captcha-service [clean].executor": "Run",
-    "Maven.captcha-service [package].executor": "Run",
-    "Maven.common-service [clean].executor": "Run",
-    "Maven.common-service [package].executor": "Run",
-    "Maven.third-games [clean].executor": "Run",
-    "Maven.third-games [install].executor": "Run",
-    "Maven.third-games [package].executor": "Run",
-    "Maven.user-service [clean].executor": "Run",
-    "Maven.user-service [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.CaptchaServiceApplication.executor": "Debug",
-    "Spring Boot.GatewayServiceApplication.executor": "Debug",
-    "Spring Boot.UserServiceApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/momo/local/java/micro-services-demo/third-games/common-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CodeGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.captcha-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.captcha-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.common-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.common-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.third-games [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CaptchaServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/momo/local/java/micro-services-demo/third-games/common-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common-service" />
       <recent name="$PROJECT_DIR$/gateway-service/src/main/java/com/third/games/gateway" />
       <recent name="$PROJECT_DIR$/gateway-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha" />
       <recent name="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common" />
-      <recent name="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/common-service/src/main/resources/mapper" />
@@ -160,7 +170,10 @@
       <workItem from="1746710239025" duration="1806000" />
       <workItem from="1746756019771" duration="33131000" />
       <workItem from="1746842467946" duration="16294000" />
-      <workItem from="1747036817913" duration="533000" />
+      <workItem from="1747036817913" duration="1030000" />
+      <workItem from="1747049149483" duration="739000" />
+      <workItem from="1747051854617" duration="1977000" />
+      <workItem from="1747054693239" duration="1078000" />
     </task>
     <servers />
   </component>

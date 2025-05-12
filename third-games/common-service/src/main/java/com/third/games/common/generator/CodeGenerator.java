@@ -83,7 +83,7 @@ public class CodeGenerator {
         String mapperXmlPath = outputDir + "/resources/com/third/games/common/mapper";
 
         FastAutoGenerator generator = FastAutoGenerator.create(
-                "jdbc:mysql://192.168.10.138:3306/third_games?serverTimezone=UTC",
+                "jdbc:mysql://127.0.0.1:3306/third_games?serverTimezone=UTC",
                 "root",
                 "123456"
         );
