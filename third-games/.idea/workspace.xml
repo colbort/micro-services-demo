@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/common.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/gateway.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sentinel-rules.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" afterDir="false" />
@@ -14,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xs-springcloudalibaba-2024" beforeDir="false" afterPath="$PROJECT_DIR$/../xs-springcloudalibaba-2024" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +177,8 @@
       <workItem from="1747049149483" duration="739000" />
       <workItem from="1747051854617" duration="1977000" />
       <workItem from="1747054693239" duration="1078000" />
+      <workItem from="1747105680775" duration="10000" />
+      <workItem from="1747127048904" duration="2447000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: http://127.0.0.1:8858
+      datasource:
+        nacos:
+          server-addr: 127.0.0.1:8848   # Nacos 服务的地址
+          data-id: sentinel-rules.json  # Nacos 中存储规则的 Data ID
+          rule-type: flow              # 配置规则类型，支持 flow, degrade, system, authority 等
+    gateway:
+      filters:
+        - name: SentinelGatewayFilter
+      routes:
+        - id: captcha-service
+          uri: lb://captcha-service  # 使用服务发现，前提是 captcha-service 已经注册到 Eureka 或其他服务注册中心
+          predicates:
+            - Path=/api/v1/verify/**
+        - id: user-service
+          uri: lb://user-service  # 使用服务发现，前提是 user-service 已经注册到 Eureka 或其他服务注册中心
+          predicates:
+            - Path=/api/v1/user/**

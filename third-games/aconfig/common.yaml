@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/third_games?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      database: 15
+      timeout: 3000
+
+sms:
+  app-key: 0fcc92a094bdb93fee98288a
+  secret: d01e23d0da9c1fc11b5ba4ae
+  limit:
+    interval-seconds: 60     # 单个账号发送最小间隔（秒）
+    max-per-day: 5           # 单个账号每天最多发送次数
+
+email:
+  host: smtp.gmail.com
+  port: 587
+  auth: true
+  starttls_enable: true
+  from: your-email@gmail.com
+  password: your-email-password
+  limit:
+    interval-seconds: 60     # 单个账号发送最小间隔（秒）
+    max-per-day: 15           # 单个账号每天最多发送次数
+
+jwt:
+  login-type: password
+  secret-key: sdkjfeipwernjnsdf
+  timeout: 604800
