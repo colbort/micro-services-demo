@@ -13,7 +13,7 @@ public class Result<T> {
     private T data;
 
     public static <T> Result<T> success(T data) {
-        return new Result<>(200, "OK", data);
+        return new Result<>(0, "OK", data);
     }
 
     public static Result<?> success() {

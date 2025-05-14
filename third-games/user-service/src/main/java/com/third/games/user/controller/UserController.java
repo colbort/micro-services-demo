@@ -26,8 +26,8 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/register")
     @NoAuth
+    @PostMapping("/register")
     public Result<UserVO> register(@RequestBody UserBO request) {
         return userService.register(request);
     }

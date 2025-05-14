@@ -32,8 +32,20 @@ public class GlobalExceptionHandler {
     // 兜底异常
     @ExceptionHandler(Exception.class)
     public Result<?> handleException(Exception ex) {
+        Throwable root = getRootCause(ex);
+        if (root instanceof BizException bizEx) {
+            return Result.fail(bizEx.getCode(), bizEx.getMessage());
+        }
         ex.printStackTrace(); // 打印日志（也可用 log.error）
         return Result.fail(500, "服务器内部异常");
+    }
+
+    private Throwable getRootCause(Throwable ex) {
+        Throwable cause = ex;
+        while (cause.getCause() != null && cause != cause.getCause()) {
+            cause = cause.getCause();
+        }
+        return cause;
     }
 }
 

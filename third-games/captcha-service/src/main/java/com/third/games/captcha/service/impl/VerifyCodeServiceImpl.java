@@ -55,7 +55,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
         } else if (type == VerifyCodeTypeEnum.EMAIL) {
             return sendEmail(title, content, account, ip);
         } else {
-            throw new BizException(0, "不支持的验证码类型");
+            throw new BizException(1, "不支持的验证码类型");
         }
     }
 
@@ -69,7 +69,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
                 dailyCount = Integer.parseInt(String.valueOf(count));
             }
             if (dailyCount >= smsProperties.getLimit().getMaxPerDay()) {
-                throw new BizException(0, "每日发送次数已达上限，请明天再试");
+                throw new BizException(1, "每日发送次数已达上限，请明天再试");
             }
 
             // 检查最小间隔时间
@@ -82,7 +82,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
                 long lastSendTime = Long.parseLong(lastSendTimeStr);
                 long currentTime = System.currentTimeMillis();
                 if ((currentTime - lastSendTime) < smsProperties.getLimit().getIntervalSeconds() * 1000L) {
-                    throw new BizException(0, "发送过于频繁，请稍后再试");
+                    throw new BizException(1, "发送过于频繁，请稍后再试");
                 }
             }
 
@@ -98,7 +98,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             publisher.publishEvent(new SmsSendEvent(templateId, title, content, countryCode, phone, ip));
             return Result.success(value);
         } catch (Exception e) {
-            throw new BizException(0, e.getMessage());
+            throw new BizException(1, e.getMessage());
         }
     }
 
@@ -109,7 +109,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             // 检查每天发送次数是否超限
             int dailyCount = Integer.parseInt(redisUtils.get(redisKey + ":dailyCount").toString());
             if (dailyCount >= emailProperties.getLimit().getMaxPerDay()) {
-                throw new BizException(0, "每日发送次数已达上限，请明天再试");
+                throw new BizException(1, "每日发送次数已达上限，请明天再试");
             }
 
             // 检查最小间隔时间
@@ -118,7 +118,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
                 long lastSendTime = Long.parseLong(lastSendTimeStr);
                 long currentTime = System.currentTimeMillis();
                 if ((currentTime - lastSendTime) < emailProperties.getLimit().getIntervalSeconds() * 1000L) {
-                    throw new BizException(0, "发送过于频繁，请稍后再试");
+                    throw new BizException(1, "发送过于频繁，请稍后再试");
                 }
             }
             String code = generateCode(6);
@@ -132,7 +132,7 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
             publisher.publishEvent(new EmailSendEvent(title, content, email, ip));
             return Result.success(value);
         } catch (Exception e) {
-            throw new BizException(0, e.getMessage());
+            throw new BizException(1, e.getMessage());
         }
     }
 
@@ -161,14 +161,14 @@ public class VerifyCodeServiceImpl extends ServiceImpl<VerifyCodeLogMapper, Veri
     @Override
     public Result<Boolean> verify(VerifyCodeBO request) throws BizException {
         if (request == null || request.getVerifyCode() == null || request.getVerifyCode().isEmpty()) {
-            throw new BizException(0, "参数错误");
+            throw new BizException(1, "参数错误");
         }
         Object value = redisUtils.get(verifyCodeKey(request.getVerifyCode()));
         if (value == null) {
-            throw new BizException(0, "验证码过期");
+            throw new BizException(1, "验证码过期");
         }
         if (!Objects.equals(String.valueOf(value), request.getVerifyId())) {
-            throw new BizException(0, "验证码无效");
+            throw new BizException(1, "验证码无效");
         }
         redisUtils.del(verifyCodeKey(request.getVerifyCode()));
         return Result.success(true);

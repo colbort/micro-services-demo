@@ -1,5 +1,6 @@
 package com.third.games.user;
 
+import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 })
 @EnableFeignClients(basePackages = "com.third.games.user.feign")
 @EnableDiscoveryClient
+@EnableAutoDataSourceProxy  // 开启数据源代理
 public class UserServiceApplication {
 
     public static void main(String[] args) {

@@ -15,9 +15,11 @@ import com.third.games.common.security.LoginUser;
 import com.third.games.common.utils.JwtTokenUtil;
 import com.third.games.common.utils.RedisUtil;
 import com.third.games.common.vo.UserVO;
+import com.third.games.user.feign.ProductServiceClient;
 import com.third.games.user.feign.VerifyServiceClient;
 import com.third.games.user.service.IUserService;
 import com.third.games.user.utils.PasswordUtil;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +43,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private VerifyServiceClient verifyServiceClient;
     @Autowired
     private JwtTokenUtil tokenUtil;
+    @Autowired
+    private ProductServiceClient productServiceClient;
 
     @Override
+    @GlobalTransactional(rollbackFor = Exception.class, name = "用户注册")
     public Result<UserVO> register(UserBO request) throws BizException {
         if (StringUtils.isBlank(request.getUsername()) &&
                 StringUtils.isBlank(request.getEmail()) &&
                 StringUtils.isBlank(request.getPhone())) {
-            throw new BizException(0, "用户名、邮箱或手机号至少一个！");
+            throw new BizException(1, "用户名、邮箱或手机号至少一个！");
         }
 
         // 校验用户名、手机号或邮箱是否已存在
@@ -55,21 +60,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (StringUtils.isNotBlank(request.getUsername())) {
             query.eq(User::getUsername, request.getUsername());
             if (userMapper.selectOne(query) != null) {
-                throw new BizException(0, "用户名已存在！");
+                throw new BizException(1, "用户名已存在！");
             }
         }
         if (StringUtils.isNotBlank(request.getPhone())) {
             query.clear();
             query.eq(User::getPhone, request.getPhone());
             if (userMapper.selectOne(query) != null) {
-                throw new BizException(0, "手机号已存在！");
+                throw new BizException(1, "手机号已存在！");
             }
         }
         if (StringUtils.isNotBlank(request.getEmail())) {
             query.clear();
             query.eq(User::getEmail, request.getEmail());
             if (userMapper.selectOne(query) != null) {
-                throw new BizException(0, "邮箱已存在！");
+                throw new BizException(1, "邮箱已存在！");
             }
         }
 
@@ -80,7 +85,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 throw new BizException(result.getCode(), result.getMessage());
             }
             if (!result.getData()) {
-                throw new BizException(0, "验证码校验失败");
+                throw new BizException(1, "验证码校验失败");
             }
         }
 
@@ -104,7 +109,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public Result<UserVO> login(UserBO request) throws BizException {
         if (request.getCodeLogin() && StringUtils.isBlank(request.getVerifyCode())) {
-            throw new BizException(0, "验证码登录，验证码不能为空");
+            throw new BizException(1, "验证码登录，验证码不能为空");
         }
         LambdaQueryWrapper<User> query = new LambdaQueryWrapper<>();
         if (StringUtils.isNotBlank(request.getUsername())) query.or().eq(User::getUsername, request.getUsername());
@@ -123,7 +128,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 throw new BizException(result.getCode(), result.getMessage());
             }
             if (!result.getData()) {
-                throw new BizException(0, "验证码校验失败");
+                throw new BizException(1, "验证码校验失败");
             }
         } else {
             if (!PasswordUtil.matches(request.getPassword(), user.getPassword())) {
