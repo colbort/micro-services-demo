@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="119f645b-700b-4831-8e02-a5a0ad90c4a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/feign/ProductServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/service/impl/VerifyCodeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/captcha-service/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/bo/UserBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/bo/UserBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/UserAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/UserAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/UserPrivate.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/UserPrivate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/VerifyCodeLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/entity/VerifyCodeLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/exception/BizException.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-service/src/main/java/com/third/games/common/exception/BizException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/config/WebFilterConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/filter/TokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../xs-springcloudalibaba-2024" beforeDir="false" afterPath="$PROJECT_DIR$/../xs-springcloudalibaba-2024" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +64,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth0": "535",
+    "RequestMappingsPanelWidth1": "534",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.CaptchaServiceApplication.executor": "Debug",
@@ -189,7 +187,9 @@
       <workItem from="1747105680775" duration="10000" />
       <workItem from="1747127048904" duration="9711000" />
       <workItem from="1747194852173" duration="9007000" />
-      <workItem from="1747221287941" duration="4606000" />
+      <workItem from="1747221287941" duration="5615000" />
+      <workItem from="1747314291309" duration="2344000" />
+      <workItem from="1748250473304" duration="4983000" />
     </task>
     <servers />
   </component>
@@ -223,26 +223,6 @@
           <url>file://$PROJECT_DIR$/captcha-service/src/main/java/com/third/games/captcha/filter/TokenInterceptor.java</url>
           <line>28</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/third/games/user/handler/GlobalExceptionHandler.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

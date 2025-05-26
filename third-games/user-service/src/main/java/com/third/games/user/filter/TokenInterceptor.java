@@ -1,6 +1,7 @@
 package com.third.games.user.filter;
 
 import com.third.games.common.annotation.NoAuth;
+import com.third.games.common.exception.BizException;
 import com.third.games.common.security.LoginUser;
 import com.third.games.common.utils.JwtTokenUtil;
 import com.third.games.common.utils.UserContext;
@@ -41,9 +42,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         // 读取 token
         String token = request.getHeader("Authorization");
         if (!StringUtils.hasText(token)) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Missing token");
-            return false;
+            throw new BizException(HttpServletResponse.SC_UNAUTHORIZED, "Missing token");
         }
 
         try {
@@ -51,9 +50,7 @@ public class TokenInterceptor implements HandlerInterceptor {
             userContext.set(loginUser); // 设置上下文
             return true;
         } catch (Exception e) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Invalid token");
-            return false;
+            throw new BizException(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
         }
     }
 

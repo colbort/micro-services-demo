@@ -7,6 +7,8 @@ import com.third.games.common.security.LoginUser;
 import com.third.games.common.utils.UserContext;
 import com.third.games.common.vo.UserVO;
 import com.third.games.user.service.IUserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api/v1/user")
+@Tag(name = "用户接口", description = "用户信息相关接口")
 public class UserController {
     @Autowired
     private UserContext userContext;
@@ -28,6 +31,7 @@ public class UserController {
 
     @NoAuth
     @PostMapping("/register")
+    @Operation(summary = "用户注册", description = "注册用户")
     public Result<UserVO> register(@RequestBody UserBO request) {
         return userService.register(request);
     }
@@ -38,7 +42,7 @@ public class UserController {
         return userService.login(request);
     }
 
-    @GetMapping("/logout")
+    @DeleteMapping("/logout")
     public Result<Boolean> logout() {
         LoginUser loginUser = userContext.get();
         return userService.logout(loginUser);
